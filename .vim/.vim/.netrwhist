@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/mkut/Dropbox/sports_prog'
+let g:netrw_dirhist_2='/home/mkut/Dropbox/Univ/Lectures/[IS]/cpuexp/repository/cpuexp/trunk/compiler/test'
+let g:netrw_dirhist_3='/home/mkut/rg/kachako/svn/kachako/UConnect/src/org/kachako/composition/dag'
+let g:netrw_dirhist_4='/home/mkut/Dropbox/templates/hs.makefile'
+let g:netrw_dirhist_5='/home/mkut/develop/theki/.git'
+let g:netrw_dirhist_6='/home/mkut/Dropbox/templates/cf.scala'
+let g:netrw_dirhist_7='/home/mkut/.vim'

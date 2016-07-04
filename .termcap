@@ -1,0 +1,7 @@
+#	Reconstructed via infocmp from file: /usr/local/share/misc/terminfo.db
+# (untranslatable capabilities removed to fit entry within 1023 bytes)
+# (sgr removed to fit entry within 1023 bytes)
+# (acsc removed to fit entry within 1023 bytes)
+# (terminfo-only capabilities suppressed to fit entry within 1023 bytes)
+xterm-screen-256color|GNU Screen with 256 colors bce and tmux xterm-keys:\
+	te=\E[?1049l:ti=\E[?1049h:tc=screen-256color:

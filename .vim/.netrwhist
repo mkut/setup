@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/mkut/.zshrc.d'
+let g:netrw_dirhist_2='/home/mkut/indeed/sem'
+let g:netrw_dirhist_3='/home/mkut/.ssh'
