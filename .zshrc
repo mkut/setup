@@ -1,29 +1,35 @@
 # autocomplete
-autoload -U compinit
+autoload -Uz compinit
 compinit
 
 # language
 export LANG=ja_JP.UTF-8
 
 # prompt
-local RED=$'%{\e[1;31m%}'
-local GREEN=$'%{\e[1;32m%}'
-local YELLOW=$'%{\e[1;33m%}'
-local BLUE=$'%{\e[1;34m%}'
-local LBLUE=$'%{\e[1;36m%}'
-local DEFAULT=$'%{\e[1;m%}'
+setopt prompt_subst
+
+ # git
+autoload -Uz vcs_info
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}"
+zstyle ':vcs_info:git:*' formats " %F{green}%c%u[%b]"
+zstyle ':vcs_info:git:*' actionformats '%F{red}[%b|%a]'
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+
 case ${UID} in
 0)
-	PROMPT="${RED}%39<..<%/%# ${DEFAULT}"
-	PROMPT2="${RED}%39<..<%_%# "${DEFAULT}
+	PROMPT='%F{red}%39<..<%/%#vcs_info_msg_0_ %f'
+	PROMPT2="%F{yellow}%39<..<%_%# %f"
 	SPROMPT="%r is correct? [n,y,a,e]: " 
-	[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && PROMPT="${LBLUE}${HOST%%.*} ${PROMPT}"
+	[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && PROMPT="%F{cyan}${HOST%%.*} ${PROMPT}"
 	;;
 *)
-	PROMPT="${GREEN}%39<..<%/%# ${DEFAULT}"
-	PROMPT2="${GREEN}%39<..<%_%# "${DEFAULT}
+	PROMPT='%F{green}%39<..<%/%#$vcs_info_msg_0_ %f'
+	PROMPT2="%F{yellow}%39<..<%_%# %f"
 	SPROMPT="%r is correct? [n,y,a,e]: " 
-	[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && PROMPT="${LBLUE}${HOST%%.*} ${PROMPT}"
+	[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && PROMPT="%F{cyan}${HOST%%.*} ${PROMPT}"
 	;;
 esac
 
